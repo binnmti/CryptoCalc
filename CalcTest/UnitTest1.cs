@@ -6,62 +6,27 @@ namespace CalcTest
     public class UnitTest1
     {
         [TestMethod]
-        public void êîéöÇæÇØÇí«â¡()
+        [DataRow(new[] { "1", "2", "3" }, 123)]
+        [DataRow(new[] { "1", "2", "+" }, 12)]
+        [DataRow(new[] { "1", "2", "+", "2", "1", "+" }, 33)]
+        [DataRow(new[] { "1", "+", "2", "=" }, 3)]
+        [DataRow(new[] { "1", "-", "2", "=" }, -1)]
+        [DataRow(new[] { "2", "Å~", "3", "=" }, 6)]
+        [DataRow(new[] { "6", "ÅÄ", "2", "=" }, 3)]
+        [DataRow(new[] { "1", "2", "+", "2", "1" }, 21)]
+        public void TestAdd(string[] input, double expected)
         {
+            // Arrange
             var calc = new Calc();
-            calc.Add("1");
-            calc.Add("2");
-            calc.Add("3");
-            Assert.AreEqual(calc.CurrentNumber, 123);
-        }
 
-        [TestMethod]
-        public void åvéZÇí«â¡()
-        {
-            var calc = new Calc();
-            calc.Add("1");
-            calc.Add("2");
-            calc.Add("+");
-            calc.Add("2");
-            calc.Add("1");
-            calc.Add("=");
-            Assert.AreEqual(calc.CurrentNumber, 33);
-        }
+            // Act
+            foreach (var str in input)
+            {
+                calc.Add(str);
+            }
 
-        [TestMethod]
-        public void ãLçÜé~Çﬂ()
-        {
-            var calc = new Calc();
-            calc.Add("1");
-            calc.Add("2");
-            calc.Add("+");
-            Assert.AreEqual(calc.CurrentNumber, 12);
-        }
-
-        [TestMethod]
-        public void ãLçÜé~Çﬂ2()
-        {
-            var calc = new Calc();
-            calc.Add("1");
-            calc.Add("2");
-            calc.Add("+");
-            calc.Add("2");
-            calc.Add("1");
-            calc.Add("+");
-            Assert.AreEqual(calc.CurrentNumber, 33);
-        }
-
-        [TestMethod]
-        public void É}ÉCÉiÉXåvéZ()
-        {
-            var calc = new Calc();
-            calc.Add("2");
-            calc.Add("2");
-            calc.Add("-");
-            calc.Add("2");
-            calc.Add("1");
-            calc.Add("+");
-            Assert.AreEqual(calc.CurrentNumber, 1);
+            // Assert
+            Assert.AreEqual((decimal)expected, calc.CurrentNumber);
         }
     }
 }
