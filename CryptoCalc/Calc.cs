@@ -8,6 +8,13 @@ public class Calc
 
     public decimal Add(string str)
     {
+        if (StrList.Count == 0 && IsCalc(str))
+        {
+            foreach (var n in CurrentNumber.ToString())
+            {
+                StrList.Add(n.ToString());
+            }
+        }
         if (string.Compare(str, "C", true) == 0)
         {
             StrList.Clear();
@@ -18,6 +25,10 @@ public class Calc
             StrList.Add(str);
         }
         CurrentNumber = ToDecimal(StrList);
+        if(str == "=")
+        {
+            StrList.Clear();
+        }
         return CurrentNumber;
     }
 
@@ -27,7 +38,7 @@ public class Calc
         var result = "";
         foreach (var str in strList)
         {
-            if (str == "+" || str == "-" || str == "÷" || str == "×" || str == "=")
+            if (IsCalc(str))
             {
                 calcItem.Add(Tuple.Create(decimal.Parse(result), str));
                 result = "";
@@ -57,4 +68,7 @@ public class Calc
         }
         return result;
     }
+
+    private static bool IsCalc(string str)
+        => str == "+" || str == "-" || str == "÷" || str == "×" || str == "=";
 }
