@@ -20,6 +20,12 @@ public class Calc
         var resultNumber = "";
         foreach (var str in strList)
         {
+            if (str == "=")
+            {
+                CalcNum.Add(decimal.Parse(resultNumber));
+                resultNumber = "";
+                continue;
+            }
             if (str == "+" || str == "-" || str == "÷" || str == "×")
             {
                 CalcNum.Add(decimal.Parse(resultNumber));
