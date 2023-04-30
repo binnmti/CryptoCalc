@@ -50,5 +50,18 @@ namespace CalcTest
             calc.Add("+");
             Assert.AreEqual(calc.CurrentNumber, 33);
         }
+
+        [TestMethod]
+        public void マイナス計算()
+        {
+            var calc = new Calc();
+            calc.Add("2");
+            calc.Add("2");
+            calc.Add("-");
+            calc.Add("2");
+            calc.Add("1");
+            calc.Add("+");
+            Assert.AreEqual(calc.CurrentNumber, 1);
+        }
     }
 }

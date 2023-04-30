@@ -3,7 +3,7 @@
 public class Calc
 {
     private readonly List<string> CalcStr = new();
-    private readonly List<decimal> CalcNum = new();
+    private readonly List<Tuple<decimal,string>> CalcNum = new();
 
     public decimal CurrentNumber { get; private set; }
 
@@ -22,18 +22,38 @@ public class Calc
         {
             if (str == "=")
             {
-                CalcNum.Add(decimal.Parse(resultNumber));
+                CalcNum.Add(Tuple.Create(decimal.Parse(resultNumber), str));
                 resultNumber = "";
                 continue;
             }
             if (str == "+" || str == "-" || str == "÷" || str == "×")
             {
-                CalcNum.Add(decimal.Parse(resultNumber));
+                CalcNum.Add(Tuple.Create(decimal.Parse(resultNumber), str));
                 resultNumber = "";
                 continue;
             }
             resultNumber += str;
         }
-        return resultNumber == "" ? CalcNum.Sum(x => x)  : decimal.Parse(resultNumber);
+        return resultNumber == "" ? Convert(CalcNum) : decimal.Parse(resultNumber);
+    }
+
+    private static decimal Convert(List<Tuple<decimal, string>> CalcNum)
+    {
+        string preSymbol = "";
+        decimal result = 0;
+        foreach (var (num, symbol) in CalcNum)
+        {
+            result = preSymbol switch
+            {
+                "+" => result + num,
+                "-" => result - num,
+                "×" => result * num,
+                "÷" => result / num,
+                "%" => result % num,
+                _ => result + num,
+            };
+            preSymbol = symbol;
+        }
+        return result;
     }
 }
