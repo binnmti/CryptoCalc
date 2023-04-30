@@ -82,4 +82,9 @@ public partial class Form1 : Form
     {
         numericUpDown.Value = Calc.Add("ÅÄ");
     }
+
+    private void buttonEqual_Click(object sender, EventArgs e)
+    {
+        numericUpDown.Value = Calc.Add("=");
+    }
 }

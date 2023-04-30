@@ -57,7 +57,6 @@
             numericUpDown.Location = new Point(23, 25);
             numericUpDown.Margin = new Padding(14, 16, 14, 16);
             numericUpDown.Maximum = new decimal(new int[] { -1, -1, -1, 0 });
-            numericUpDown.Minimum = new decimal(new int[] { -1, -1, -1, int.MinValue });
             numericUpDown.Name = "numericUpDown";
             numericUpDown.Size = new Size(592, 87);
             numericUpDown.TabIndex = 1;
@@ -219,6 +218,7 @@
             buttonEqual.TabIndex = 21;
             buttonEqual.Text = "=";
             buttonEqual.UseVisualStyleBackColor = true;
+            buttonEqual.Click += buttonEqual_Click;
             // 
             // buttonMinus
             // 

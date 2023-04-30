@@ -2,42 +2,36 @@
 
 public class Calc
 {
-    private readonly List<string> CalcStr = new();
+    private readonly List<string> StrList = new();
     private readonly List<Tuple<decimal,string>> CalcNum = new();
 
     public decimal CurrentNumber { get; private set; }
 
     public decimal Add(string str)
     {
-        CalcStr.Add(str);
-        CurrentNumber = Convert(CalcStr);
+        StrList.Add(str);
+        CurrentNumber = ToDecimal(StrList);
         return CurrentNumber;
     }
 
-    private decimal Convert(IEnumerable<string> strList)
+    private decimal ToDecimal(IEnumerable<string> strList)
     {
         CalcNum.Clear();
-        var resultNumber = "";
+        var result = "";
         foreach (var str in strList)
         {
-            if (str == "=")
+            if (str == "+" || str == "-" || str == "÷" || str == "×" || str == "=")
             {
-                CalcNum.Add(Tuple.Create(decimal.Parse(resultNumber), str));
-                resultNumber = "";
+                CalcNum.Add(Tuple.Create(decimal.Parse(result), str));
+                result = "";
                 continue;
             }
-            if (str == "+" || str == "-" || str == "÷" || str == "×")
-            {
-                CalcNum.Add(Tuple.Create(decimal.Parse(resultNumber), str));
-                resultNumber = "";
-                continue;
-            }
-            resultNumber += str;
+            result += str;
         }
-        return resultNumber == "" ? Convert(CalcNum) : decimal.Parse(resultNumber);
+        return result == "" ? ToDecimal(CalcNum) : decimal.Parse(result);
     }
 
-    private static decimal Convert(List<Tuple<decimal, string>> CalcNum)
+    private static decimal ToDecimal(List<Tuple<decimal, string>> CalcNum)
     {
         string preSymbol = "";
         decimal result = 0;
