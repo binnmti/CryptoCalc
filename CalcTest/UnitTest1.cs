@@ -6,6 +6,7 @@ namespace CalcTest
     public class UnitTest1
     {
         [TestMethod]
+        [DataRow(new[] { "1", "2", "+", "1", "2", "=", "1", "2", }, 12)]
         [DataRow(new[] { "1", "2", "3" }, 123)]
         [DataRow(new[] { "1", "2", "+" }, 12)]
         [DataRow(new[] { "1", "2", "+", "2", "1", "+" }, 33)]

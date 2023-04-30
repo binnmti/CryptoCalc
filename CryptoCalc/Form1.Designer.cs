@@ -248,6 +248,7 @@
             buttonReset.TabIndex = 18;
             buttonReset.Text = "C";
             buttonReset.UseVisualStyleBackColor = true;
+            buttonReset.Click += buttonReset_Click;
             // 
             // comboBox1
             // 
