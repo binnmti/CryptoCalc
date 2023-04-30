@@ -62,7 +62,6 @@
             numericUpDown.Size = new Size(592, 87);
             numericUpDown.TabIndex = 1;
             numericUpDown.TextAlign = HorizontalAlignment.Right;
-            numericUpDown.ThousandsSeparator = true;
             // 
             // button7
             // 
@@ -190,6 +189,7 @@
             buttonPlus.TabIndex = 17;
             buttonPlus.Text = "+";
             buttonPlus.UseVisualStyleBackColor = true;
+            buttonPlus.Click += buttonPlus_Click;
             // 
             // buttonMul
             // 
@@ -199,6 +199,7 @@
             buttonMul.TabIndex = 15;
             buttonMul.Text = "×";
             buttonMul.UseVisualStyleBackColor = true;
+            buttonMul.Click += buttonMul_Click;
             // 
             // buttonRemainder
             // 
@@ -208,6 +209,7 @@
             buttonRemainder.TabIndex = 14;
             buttonRemainder.Text = "%";
             buttonRemainder.UseVisualStyleBackColor = true;
+            buttonRemainder.Click += buttonRemainder_Click;
             // 
             // buttonEqual
             // 
@@ -226,6 +228,7 @@
             buttonMinus.TabIndex = 20;
             buttonMinus.Text = "-";
             buttonMinus.UseVisualStyleBackColor = true;
+            buttonMinus.Click += buttonMinus_Click;
             // 
             // buttonDiv
             // 
@@ -235,6 +238,7 @@
             buttonDiv.TabIndex = 19;
             buttonDiv.Text = "÷";
             buttonDiv.UseVisualStyleBackColor = true;
+            buttonDiv.Click += buttonDiv_Click;
             // 
             // buttonReset
             // 

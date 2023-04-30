@@ -57,4 +57,29 @@ public partial class Form1 : Form
     {
         numericUpDown.Value = Calc.Add("9");
     }
+
+    private void buttonPlus_Click(object sender, EventArgs e)
+    {
+        numericUpDown.Value = Calc.Add("+");
+    }
+
+    private void buttonMinus_Click(object sender, EventArgs e)
+    {
+        numericUpDown.Value = Calc.Add("-");
+    }
+
+    private void buttonMul_Click(object sender, EventArgs e)
+    {
+        numericUpDown.Value = Calc.Add("Å~");
+    }
+
+    private void buttonRemainder_Click(object sender, EventArgs e)
+    {
+        numericUpDown.Value = Calc.Add("%");
+    }
+
+    private void buttonDiv_Click(object sender, EventArgs e)
+    {
+        numericUpDown.Value = Calc.Add("ÅÄ");
+    }
 }

@@ -2,22 +2,32 @@
 
 public class Calc
 {
-    private List<string> CalcStr = new List<string>();
+    private readonly List<string> CalcStr = new();
+    private readonly List<decimal> CalcNum = new();
+
+    public decimal CurrentNumber { get; private set; }
 
     public decimal Add(string str)
     {
         CalcStr.Add(str);
-        return Convert(CalcStr);
+        CurrentNumber = Convert(CalcStr);
+        return CurrentNumber;
     }
 
     private decimal Convert(IEnumerable<string> strList)
     {
+        CalcNum.Clear();
         var resultNumber = "";
         foreach (var str in strList)
         {
-            if (str == "+" || str == "-" || str == "÷" || str == "×") resultNumber = "";
+            if (str == "+" || str == "-" || str == "÷" || str == "×")
+            {
+                CalcNum.Add(decimal.Parse(resultNumber));
+                resultNumber = "";
+                continue;
+            }
             resultNumber += str;
         }
-        return decimal.Parse(resultNumber);
+        return resultNumber == "" ? CalcNum.Sum(x => x)  : decimal.Parse(resultNumber);
     }
 }
