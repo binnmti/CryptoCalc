@@ -10,9 +10,10 @@ public class SymbolConverterTest
     [DataRow("yen", "matic", 136, 1)]
     public void TestAdd(string nowSymbol, string newSymbol, double nowPrice, double newPrice)
     {
-        decimal dnowPrice = (decimal)nowPrice;
-        decimal dnewPrice = (decimal)newPrice;
-        var result = SymbolConverter.Convert(nowSymbol, newSymbol, dnowPrice);
-        Assert.AreEqual(dnewPrice, result);
+        var nowPriceD = (decimal)nowPrice;
+        var newPriceD = (decimal)newPrice;
+
+        var result = SymbolConverter.Convert(nowSymbol, newSymbol, nowPriceD);
+        Assert.AreEqual(newPriceD, result);
     }
 }
