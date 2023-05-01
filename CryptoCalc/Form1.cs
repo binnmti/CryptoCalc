@@ -132,7 +132,7 @@ public partial class Form1 : Form
     private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
         decimal.TryParse(calcTextBox.Text, out var result);
-        calcTextBox.Text = YenConverter.Convert(_comboText, comboBox1.Text, result).ToString();
+        calcTextBox.Text = SymbolConverter.Convert(_comboText, comboBox1.Text, result).ToString();
 
         //if (_comboText == "yen")
         //{
