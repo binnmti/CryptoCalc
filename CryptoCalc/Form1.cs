@@ -1,9 +1,6 @@
 using Dapper;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Configuration;
 using System.Data.SqlClient;
-using static CryptoCalc.Coin;
 
 namespace CryptoCalc;
 
@@ -111,7 +108,7 @@ public partial class Form1 : Form
     private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
         float.TryParse(calcTextBox.Text, out var result);
-        calcTextBox.Text = SymbolConverter.Convert(SymbolItems, _comboText, comboBox1.Text, result).ToString();
+        calcTextBox.Text = SymbolItems.Convert(_comboText, comboBox1.Text, result).ToString();
 
         _comboText = comboBox1.Text;
     }
