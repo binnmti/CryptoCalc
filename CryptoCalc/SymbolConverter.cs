@@ -8,6 +8,11 @@ public static class SymbolConverter
         {"matic", 136m },
     };
 
+
+    //public static decimal Create(Dictionary<string, decimal> )
+    //{
+    //}
+
     public static decimal Convert(string nowSymbol, string newSymbol, decimal price)
     {
         if (nowSymbol == "yen")
