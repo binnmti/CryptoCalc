@@ -6,11 +6,13 @@ namespace CryptoCalcTest;
 public class SymbolConverterTest
 {
     [TestMethod]
-    [DataRow("yen", "eth", 259517)]
-    public void TestAdd(string nowSymbol, string newSymbol, double price)
+    [DataRow("yen", "eth", 259517, 1)]
+    [DataRow("yen", "matic", 136, 1)]
+    public void TestAdd(string nowSymbol, string newSymbol, double nowPrice, double newPrice)
     {
-        decimal dprice = (decimal)price;
-        var result = SymbolConverter.Convert(nowSymbol, newSymbol, dprice);
-        Assert.AreEqual(1m, result);
+        decimal dnowPrice = (decimal)nowPrice;
+        decimal dnewPrice = (decimal)newPrice;
+        var result = SymbolConverter.Convert(nowSymbol, newSymbol, dnowPrice);
+        Assert.AreEqual(dnewPrice, result);
     }
 }
