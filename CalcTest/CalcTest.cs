@@ -6,6 +6,7 @@ namespace CryptoCalcTest;
 public class CalcTest
 {
     [TestMethod]
+    [DataRow(new[] { "3", "+", "=", }, 6)]
     [DataRow(new[] { "1", "2", "+", "1", "2", "=", "1", "2", }, 12)]
     [DataRow(new[] { "1", "2", "3" }, 123)]
     [DataRow(new[] { "1", "2", "+" }, 12)]

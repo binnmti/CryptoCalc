@@ -36,11 +36,16 @@ public class Calc
     {
         var calcItem = new List<Tuple<decimal, string>>();
         var result = "";
+        var preNum = 0m;
         foreach (var str in strList)
         {
             if (IsCalc(str))
             {
-                calcItem.Add(Tuple.Create(decimal.Parse(result), str));
+                if (result != "")
+                {
+                    preNum = decimal.Parse(result);
+                }
+                calcItem.Add(Tuple.Create(preNum, str));
                 result = "";
                 continue;
             }
