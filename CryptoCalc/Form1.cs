@@ -124,19 +124,19 @@ public partial class Form1 : Form
             //TODO
             if (comboBox1.Text == "matic(Polygon)")
             {
-                calcTextBox.Text = (result * 136m).ToString();
+                calcTextBox.Text = (result * 259517m / 136m).ToString();
             }
         }
         else if (_comboText == "matic(Polygon)")
         {
             if (comboBox1.Text == "yen(Japan)")
             {
-                calcTextBox.Text = (result * 259517m).ToString();
+                calcTextBox.Text = (result * 136m).ToString();
             }
             //TODO
             if (comboBox1.Text == "eth(Ethereum)")
             {
-                calcTextBox.Text = (result * 136m).ToString();
+                calcTextBox.Text = (result * 136m / 259517m).ToString();
             }
         }
         _comboText = comboBox1.Text;
