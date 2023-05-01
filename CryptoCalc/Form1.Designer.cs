@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            numericUpDown = new NumericUpDown();
             button7 = new Button();
             button8 = new Button();
             button9 = new Button();
@@ -49,18 +48,8 @@
             buttonDiv = new Button();
             buttonReset = new Button();
             comboBox1 = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown).BeginInit();
+            calcTextBox = new TextBox();
             SuspendLayout();
-            // 
-            // numericUpDown
-            // 
-            numericUpDown.Location = new Point(23, 25);
-            numericUpDown.Margin = new Padding(14, 16, 14, 16);
-            numericUpDown.Maximum = new decimal(new int[] { -1, -1, -1, 0 });
-            numericUpDown.Name = "numericUpDown";
-            numericUpDown.Size = new Size(592, 87);
-            numericUpDown.TabIndex = 1;
-            numericUpDown.TextAlign = HorizontalAlignment.Right;
             // 
             // button7
             // 
@@ -160,19 +149,20 @@
             buttonDot.TabIndex = 13;
             buttonDot.Text = ".";
             buttonDot.UseVisualStyleBackColor = true;
+            buttonDot.Click += buttonDot_Click;
             // 
             // button01
             // 
-            button01.Location = new Point(160, 539);
+            button01.Location = new Point(23, 539);
             button01.Name = "button01";
             button01.Size = new Size(131, 130);
             button01.TabIndex = 12;
-            button01.Text = "0.1";
+            button01.Text = "±";
             button01.UseVisualStyleBackColor = true;
             // 
             // button0
             // 
-            button0.Location = new Point(23, 539);
+            button0.Location = new Point(160, 539);
             button0.Name = "button0";
             button0.Size = new Size(131, 130);
             button0.TabIndex = 11;
@@ -254,16 +244,28 @@
             // 
             comboBox1.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "yen(Japan)", "eth(Ethereum)", "matic(Polygon)" });
             comboBox1.Location = new Point(621, 54);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 22;
+            comboBox1.Text = "yen(Japan)";
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // calcTextBox
+            // 
+            calcTextBox.Location = new Point(23, 12);
+            calcTextBox.Name = "calcTextBox";
+            calcTextBox.Size = new Size(592, 87);
+            calcTextBox.TabIndex = 23;
+            calcTextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(33F, 81F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(764, 681);
+            Controls.Add(calcTextBox);
             Controls.Add(comboBox1);
             Controls.Add(buttonEqual);
             Controls.Add(buttonMinus);
@@ -284,18 +286,15 @@
             Controls.Add(button9);
             Controls.Add(button8);
             Controls.Add(button7);
-            Controls.Add(numericUpDown);
             Font = new Font("Yu Gothic UI", 45F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(14, 16, 14, 16);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private NumericUpDown numericUpDown;
         private Button button7;
         private Button button8;
         private Button button9;
@@ -316,5 +315,6 @@
         private Button buttonDiv;
         private Button buttonReset;
         private ComboBox comboBox1;
+        private TextBox calcTextBox;
     }
 }

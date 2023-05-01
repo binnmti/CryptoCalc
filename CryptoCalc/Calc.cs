@@ -6,7 +6,7 @@ public class Calc
 
     public decimal CurrentNumber { get; private set; }
 
-    public decimal Add(string str)
+    public string Add(string str)
     {
         if (StrList.Count == 0 && IsCalc(str))
         {
@@ -29,7 +29,7 @@ public class Calc
         {
             StrList.Clear();
         }
-        return CurrentNumber;
+        return CurrentNumber.ToString();
     }
 
     private static decimal ToDecimal(IEnumerable<string> strList)
