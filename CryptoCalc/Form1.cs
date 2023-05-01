@@ -100,43 +100,73 @@ public partial class Form1 : Form
         calcTextBox.Text = Calc.Add(".");
     }
 
+    //Dictionary<string,decimal> YenConverter = new Dictionary<string, decimal>()
+    //{
+    //    {"eth", 259517m },
+    //    {"matic", 136m },
+    //};
+
+    //private string ToConvertString(string nowSymbol, string newSymbol, decimal value)
+    //{
+    //    if (nowSymbol == "yen")
+    //    {
+    //        YenConverter.TryGetValue(newSymbol, out decimal price);
+    //        return (value / price).ToString();
+    //    }
+    //    else
+    //    {
+    //        YenConverter.TryGetValue(nowSymbol, out decimal nowPrice);
+    //        if (newSymbol == "yen")
+    //        {
+    //            return (value * nowPrice).ToString();
+    //        }
+    //        else
+    //        {
+    //            YenConverter.TryGetValue(newSymbol, out decimal newePrice);
+    //            return (value * nowPrice / newePrice).ToString();
+    //        }
+    //    }
+    //}
+
+
     private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
         decimal.TryParse(calcTextBox.Text, out var result);
+        calcTextBox.Text = YenConverter.Convert(_comboText, comboBox1.Text, result).ToString();
 
-        if (_comboText == "yen")
-        {
-            if (comboBox1.Text == "eth")
-            {
-                calcTextBox.Text = (result / 259517m).ToString();
-            }
-            if (comboBox1.Text == "matic")
-            {
-                calcTextBox.Text = (result / 136m).ToString();
-            }
-        }
-        else if (_comboText == "eth")
-        {
-            if (comboBox1.Text == "yen")
-            {
-                calcTextBox.Text = (result * 259517m).ToString();
-            }
-            if (comboBox1.Text == "matic")
-            {
-                calcTextBox.Text = (result * 259517m / 136m).ToString();
-            }
-        }
-        else if (_comboText == "matic")
-        {
-            if (comboBox1.Text == "yen")
-            {
-                calcTextBox.Text = (result * 136m).ToString();
-            }
-            if (comboBox1.Text == "eth")
-            {
-                calcTextBox.Text = (result * 136m / 259517m).ToString();
-            }
-        }
+        //if (_comboText == "yen")
+        //{
+        //    if (comboBox1.Text == "eth")
+        //    {
+        //        calcTextBox.Text = (result / 259517m).ToString();
+        //    }
+        //    if (comboBox1.Text == "matic")
+        //    {
+        //        calcTextBox.Text = (result / 136m).ToString();
+        //    }
+        //}
+        //else if (_comboText == "eth")
+        //{
+        //    if (comboBox1.Text == "yen")
+        //    {
+        //        calcTextBox.Text = (result * 259517m).ToString();
+        //    }
+        //    if (comboBox1.Text == "matic")
+        //    {
+        //        calcTextBox.Text = (result * 259517m / 136m).ToString();
+        //    }
+        //}
+        //else if (_comboText == "matic")
+        //{
+        //    if (comboBox1.Text == "yen")
+        //    {
+        //        calcTextBox.Text = (result * 136m).ToString();
+        //    }
+        //    if (comboBox1.Text == "eth")
+        //    {
+        //        calcTextBox.Text = (result * 136m / 259517m).ToString();
+        //    }
+        //}
         _comboText = comboBox1.Text;
     }
     //TODO:1ethÇ…Ç∑ÇÈÇ›ÇΩÇ¢Ç»É{É^ÉìÅH
