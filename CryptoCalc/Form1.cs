@@ -104,37 +104,35 @@ public partial class Form1 : Form
     {
         decimal.TryParse(calcTextBox.Text, out var result);
 
-        if (_comboText == "yen(Japan)")
+        if (_comboText == "yen")
         {
-            if (comboBox1.Text == "eth(Ethereum)")
+            if (comboBox1.Text == "eth")
             {
                 calcTextBox.Text = (result / 259517m).ToString();
             }
-            if (comboBox1.Text == "matic(Polygon)")
+            if (comboBox1.Text == "matic")
             {
                 calcTextBox.Text = (result / 136m).ToString();
             }
         }
-        else if (_comboText == "eth(Ethereum)")
+        else if (_comboText == "eth")
         {
-            if (comboBox1.Text == "yen(Japan)")
+            if (comboBox1.Text == "yen")
             {
                 calcTextBox.Text = (result * 259517m).ToString();
             }
-            //TODO
-            if (comboBox1.Text == "matic(Polygon)")
+            if (comboBox1.Text == "matic")
             {
                 calcTextBox.Text = (result * 259517m / 136m).ToString();
             }
         }
-        else if (_comboText == "matic(Polygon)")
+        else if (_comboText == "matic")
         {
-            if (comboBox1.Text == "yen(Japan)")
+            if (comboBox1.Text == "yen")
             {
                 calcTextBox.Text = (result * 136m).ToString();
             }
-            //TODO
-            if (comboBox1.Text == "eth(Ethereum)")
+            if (comboBox1.Text == "eth")
             {
                 calcTextBox.Text = (result * 136m / 259517m).ToString();
             }
@@ -142,4 +140,5 @@ public partial class Form1 : Form
         _comboText = comboBox1.Text;
     }
     //TODO:1ethにするみたいなボタン？
+    //TODO:テキストを直接入力できるようにする。
 }
