@@ -10,6 +10,7 @@ namespace CryptoCalc;
 public partial class Form1 : Form
 {
     private readonly Calc Calc = new();
+    private static Dictionary<string, float> SymbolItems = new();
     private string _comboText;
     public Form1()
     {
@@ -115,26 +116,14 @@ public partial class Form1 : Form
         _comboText = comboBox1.Text;
     }
 
-    public static IConfigurationRoot Configuration { get; set; }
-
-    private static Dictionary<string, float> SymbolItems = new();
     private void Form1_Load(object sender, EventArgs e)
     {
         var builder = new ConfigurationBuilder().AddUserSecrets<Form1>();
         var configuration = builder.Build();
         var connectionString = configuration["ConnectionString"];
-
-
         using var sqlConnection = new SqlConnection(connectionString);
         var price = sqlConnection.Query<Yen>($"select * from Price");
         SymbolItems = price.ToDictionary(x => x.Id.Trim(), x => x.Price);
-
-        //private static readonly Dictionary<string, decimal> SymbolItems = new()
-        //{
-        //    {"eth", 259517m },
-        //    {"matic", 136m },
-        //};
-
     }
     //TODO:1ethにするみたいなボタン？
     //TODO:テキストを直接入力できるようにする。

@@ -244,7 +244,7 @@
             // 
             comboBox1.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "yen", "eth", "matic" });
+            comboBox1.Items.AddRange(new object[] { "yen", "ethereum", "matic-network" });
             comboBox1.Location = new Point(621, 54);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
