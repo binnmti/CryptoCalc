@@ -1,4 +1,4 @@
-namespace CryptoCalc
+    namespace CryptoCalc
 {
     internal static class Program
     {
