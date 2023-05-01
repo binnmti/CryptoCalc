@@ -258,6 +258,7 @@
             calcTextBox.Name = "calcTextBox";
             calcTextBox.Size = new Size(592, 87);
             calcTextBox.TabIndex = 23;
+            calcTextBox.Text = "0";
             calcTextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // Form1
