@@ -37,10 +37,6 @@ public class CalculatorCalcTest
         }
 
         // Assert
-<<<<<<< HEAD
         ((decimal)expected).Should().Be(calc.CurrentInputNumber);
-=======
-        ((decimal)expected).Should().Be(calc.CurrentNumber);
->>>>>>> c7d3513 (mainをマージ)
     }
 }

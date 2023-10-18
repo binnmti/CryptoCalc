@@ -32,7 +32,6 @@ public class Calc
     /// </summary>
     public string InputedFormula { get; private set; } = string.Empty;
 
-<<<<<<< HEAD
     /// <summary>
     /// 変更
     /// </summary>
@@ -43,15 +42,6 @@ public class Calc
         InputValueList.Clear();
         InputValueList.Add(number);
         CurrentNumber = ToCurrentNumber(InputValueList);
-=======
-    public void Change(decimal value)
-    {
-        var number = Math.Round(value, 6).ToString();
-        InputList.Clear();
-        InputList.Add(number);
-        CurrentInputNumber = ToCurrentInputNumber(InputList);
-        InputedNumberAndSymbol = CurrentInputNumber.ToString();
->>>>>>> 9d33dc3 (Merge pull request #4 from binnmti/MainRefactor)
     }
 
     /// <summary>
