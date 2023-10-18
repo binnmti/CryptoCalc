@@ -37,10 +37,11 @@ public class Calc
     /// 変更
     /// </summary>
     /// <param name="value"></param>
-    public void Change(string value)
+    public void Change(decimal value)
     {
+        var number = Math.Round(value, 6).ToString();
         InputValueList.Clear();
-        InputValueList.Add(value);
+        InputValueList.Add(number);
         CurrentNumber = ToCurrentNumber(InputValueList);
 =======
     public void Change(decimal value)

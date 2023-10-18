@@ -262,9 +262,15 @@
     private void OnCalcButtonClick(string str)
     {
         Calc.Input(str);
+<<<<<<< HEAD
         DisplayCoinMarketView = DisplayCoinMarketView.UpdateInputPrice(CurrentCoinMarketView, Calc.CurrentInputNumber).ToList();
         CurrentCoinMarketView = CurrentCoinMarketView with { InputPrice = Calc.CurrentInputNumber };
         var price = CurrentCoinMarketView.CurrentPrice * Calc.CurrentInputNumber;
+=======
+        DisplayCoinMarketView = DisplayCoinMarketView.UpdateInputPrice(CurrentCoinMarketView, Calc.CurrentNumber).ToList();
+        CurrentCoinMarketView = CurrentCoinMarketView with { InputPrice = Calc.CurrentNumber };
+        var price = CurrentCoinMarketView.CurrentPrice * Calc.CurrentNumber;
+>>>>>>> c7d3513 (mainをマージ)
         //TODO:0と打った時に0.00と出たのでとりあえず居れたけれど、10.00とかもあるのでもっと根本的に考える。一旦目立つので。。。
         price = (price == 0) ? 0 : price;
         CurrentLegalCurrency = CurrentLegalCurrency with { InputPrice = price };
@@ -275,7 +281,11 @@
     {
         CurrentId = legalCurrency;
         CurrentLegalCurrency = LegalCurrencyCoinMarketViews.Single(x => x.CompareId(legalCurrency));
+<<<<<<< HEAD
         CurrentLegalCurrency = CurrentLegalCurrency with { InputPrice = Calc.CurrentInputNumber };
+=======
+        CurrentLegalCurrency = CurrentLegalCurrency with { InputPrice = Calc.CurrentNumber };
+>>>>>>> c7d3513 (mainをマージ)
         CurrentCoinMarketView = CurrentLegalCurrency;
         AllCoinMarketView = AllCoinMarketView.UpdateCurrentPrice(legalCurrency);
         SearchText = "";
@@ -289,7 +299,11 @@
         var coinMarketView = AllCoinMarketView.Where(x => x.Id.Contains(SearchText, StringComparison.OrdinalIgnoreCase)
          || x.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
         DisplayCoinMarketView = coinMarketView.Skip(skip).Take(take).ToList();
+<<<<<<< HEAD
         DisplayCoinMarketView = DisplayCoinMarketView.UpdateInputPrice(CurrentCoinMarketView, Calc.CurrentInputNumber).ToList();
+=======
+        DisplayCoinMarketView = DisplayCoinMarketView.UpdateInputPrice(CurrentCoinMarketView, Calc.CurrentNumber).ToList();
+>>>>>>> c7d3513 (mainをマージ)
         PaginatedParameter = new PaginatedParameter(page, DisplayNumber, coinMarketView.Count(), 3, "kryptocalc?");
     }
 
