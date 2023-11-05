@@ -1,4 +1,4 @@
-# KryptoCalc
-[![build](https://github.com/binnmti/KryptoCalc/actions/workflows/KryptoCalc.yml/badge.svg)](https://github.com/binnmti/KryptoCalc/actions/workflows/KryptoCalc.yml)
-Dedicated calculator for use with Krypto
+# CryptoCalc
+[![build](https://github.com/binnmti/cryptoCalc/actions/workflows/CryptoCalc.yml/badge.svg)](https://github.com/binnmti/CryptoCalc/actions/workflows/CryptoCalc.yml)
+Dedicated calculator for use with Crypto
 
