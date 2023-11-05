@@ -4,11 +4,11 @@ on:
     branches:
     - main
 env:
-  AZURE_WEBAPP_NAME: KryptoCalc
-  AZURE_WEBAPP_PACKAGE_PATH: KryptoCalc\Server\published
+  AZURE_WEBAPP_NAME: CryptoCalc
+  AZURE_WEBAPP_PACKAGE_PATH: CryptoCalc\Server\published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 7.0.x
-  WORKING_DIRECTORY: KryptoCalc\Server
+  WORKING_DIRECTORY: CryptoCalc\Server
 jobs:
   build:
     runs-on: windows-latest
@@ -23,7 +23,7 @@ jobs:
     - name: Build
       run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
     - name: Test
-      run: dotnet test KryptoCalc.sln --logger trx --collect:"XPlat Code Coverage"
+      run: dotnet test CryptoCalc.sln --logger trx --collect:"XPlat Code Coverage"
     - name: Restore local tools
       run: dotnet tool install -g dotnet-reportgenerator-globaltool
     - name: Generate code coverage Markdown report
@@ -57,5 +57,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.KryptoCalc_1447 }}
+        publish-profile: ${{ secrets.CryptoCalc_1447 }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
