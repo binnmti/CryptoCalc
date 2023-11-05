@@ -1,4 +1,4 @@
-name: .NET Core アプリケーションを構築して Web アプリ CryptoCalc にデプロイする
+name: CI/CD
 on:
   push:
     branches:
@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.CryptoCalc_1B45 }}
+        publish-profile: ${{ secrets.CryptoCalc_45B1 }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
