@@ -13,7 +13,7 @@ internal static class DiscordBotUtil
         var channel = await client.GetChannelAsync(channelId) as IMessageChannel;
         var embed = new EmbedBuilder()
               .WithTitle("失敗連絡")
-              .WithUrl("https://kryptocalc.scm.azurewebsites.net/azurejobs")
+              .WithUrl("https://cryptocalc.scm.azurewebsites.net/azurejobs")
               .WithColor(Color.Red)
               .WithDescription(message)
               .Build();

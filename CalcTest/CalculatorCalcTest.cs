@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 
-namespace KryptoCalc.Shared;
+namespace CryptoCalc.Shared;
 
 [TestClass]
 public class CalculatorCalcTest
@@ -37,6 +37,6 @@ public class CalculatorCalcTest
         }
 
         // Assert
-        ((decimal)expected).Should().Be(calc.CurrentInputNumber);
+        ((decimal)expected).Should().Be(calc.CurrentNumber);
     }
 }

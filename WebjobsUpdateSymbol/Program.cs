@@ -1,4 +1,4 @@
-﻿using KryptoCalc.Shared;
+﻿using CryptoCalc.Shared;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using System.Text;
@@ -12,7 +12,7 @@ var isDevelopment = string.IsNullOrEmpty(devEnvironmentVariable) || devEnvironme
 var builder = new ConfigurationBuilder().AddEnvironmentVariables();
 if (isDevelopment) builder.AddUserSecrets<Program>();
 var Configuration = builder.Build();
-var connectionString = Configuration["ConnectionStrings:KryptoCalcServerContext"];
+var connectionString = Configuration["ConnectionStrings:CryptoCalcServerContext"];
 var discordBotToken = Configuration["ConnectionStrings:DiscordBotToken"] ?? "";
 var cosmosEndpoint = Configuration["ConnectionStrings:CosmosEndpoint"];
 var cosmosKey = Configuration["ConnectionStrings:CosmosKey"];
@@ -172,8 +172,8 @@ async Task Run()
     }
 
     //using var client = new CosmosClient(cosmosEndpoint, cosmosKey);
-    //Database database = await client.CreateDatabaseIfNotExistsAsync("KryptoCalcDB");
-    //Container container = await database.CreateContainerIfNotExistsAsync("KryptoCalcContainer", "/categoryId", 400);
+    //Database database = await client.CreateDatabaseIfNotExistsAsync("CryptoCalcDB");
+    //Container container = await database.CreateContainerIfNotExistsAsync("CryptoCalcContainer", "/categoryId", 400);
     //Product createdItem = await container.CreateItemAsync<Product>(
     //item: newItem,
     //partitionKey: new PartitionKey("61dba35b-4f02-45c5-b648-c6badc0cbd79")

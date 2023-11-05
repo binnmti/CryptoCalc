@@ -15,7 +15,7 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KryptoCalc\Shared\KryptoCalc.Shared.csproj" />
+    <ProjectReference Include="..\CryptoCalc\Shared\CryptoCalc.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Settings.job">
