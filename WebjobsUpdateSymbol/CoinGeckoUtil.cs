@@ -163,7 +163,7 @@ internal static class CoinGeckoUtil
             priceList.AddRange(idChunk.Select(id => GetPrice(JsonNode.Parse(content), id)));
 
             Console.WriteLine($"simple/price/page={page++}&count={priceList.Count}");
-            Thread.Sleep(1000 * 60);
+            Thread.Sleep(1000 * 30);
         }
         return priceList.Distinct().ToList();
     }
@@ -214,7 +214,7 @@ internal static class CoinGeckoUtil
             }));
             Console.WriteLine($"coins/markets/page={page}&count={coinMarkets.Count}");
             page++;
-            Thread.Sleep(1000 * 60);
+            Thread.Sleep(1000 * 30);
         }
         return coinMarkets.Distinct().ToList();
     }
