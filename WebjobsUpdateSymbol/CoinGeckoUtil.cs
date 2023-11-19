@@ -156,12 +156,27 @@ internal static class CoinGeckoUtil
         int page = 1;
         var currencyList = string.Join("%2C", CurrencyList);
         var priceList = new List<Price>();
+        var oldMessage = "";
         foreach (var idChunk in ids.Chunk(250))
         {
             var response = await httpClient.GetAsync($"{GeckoUrl}/simple/price?ids={string.Join("%2C", idChunk)}&vs_currencies={currencyList}");
             var content = await response.Content.ReadAsStringAsync() ?? "";
-            priceList.AddRange(idChunk.Select(id => GetPrice(JsonNode.Parse(content), id)));
-
+            try
+            {
+                priceList.AddRange(idChunk.Select(id => GetPrice(JsonNode.Parse(content), id)));
+            }
+            catch (Exception e)
+            {
+                //例外が出た場合に再度
+                Console.WriteLine(response.RequestMessage);
+                Console.WriteLine(content);
+                Console.WriteLine(e);
+                if(oldMessage == e.Message)
+                {
+                    throw;
+                }
+                oldMessage = e.Message;
+            }
             Console.WriteLine($"simple/price/page={page++}&count={priceList.Count}");
             Thread.Sleep(1000 * 30);
         }
