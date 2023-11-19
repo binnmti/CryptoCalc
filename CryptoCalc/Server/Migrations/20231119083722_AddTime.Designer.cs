@@ -4,6 +4,7 @@ using CryptoCalc.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CryptoCalc.Server.Migrations
 {
     [DbContext(typeof(CryptoCalcServerContext))]
-    partial class CryptoCalcServerContextModelSnapshot : ModelSnapshot
+    [Migration("20231119083722_AddTime")]
+    partial class AddTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,6 +95,9 @@ namespace CryptoCalc.Server.Migrations
 
                     b.Property<decimal>("Cny")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("CurrentPrice")
                         .HasColumnType("decimal(18,2)");
@@ -209,6 +215,9 @@ namespace CryptoCalc.Server.Migrations
 
                     b.Property<decimal>("Uah")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("UpdateTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("Usd")
                         .HasColumnType("decimal(18,2)");

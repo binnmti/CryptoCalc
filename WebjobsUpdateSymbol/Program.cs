@@ -147,7 +147,9 @@ async Task Run()
             price.Xag,
             price.Xau,
             price.Bits,
-            price.Sat);
+            price.Sat,
+            price.CreateTime,
+            price.UpdateTime);
 
             try
             {

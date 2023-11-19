@@ -74,7 +74,9 @@ public record CoinMarketView
                           decimal xag,
                           decimal xau,
                           decimal bits,
-                          decimal sat)
+                          decimal sat,
+                          DateTime createTime,
+                          DateTime updateTime)
         : this(id, symbol, name, image, currentPrice, inputPrice, isLegal)
     {
         MarketCapRank = marketCapRank;
@@ -128,6 +130,8 @@ public record CoinMarketView
         Xau = xau;
         Bits = bits;
         Sat = sat;
+        CreateTime = createTime;
+        UpdateTime = updateTime;
     }
 
     public string Id { get; set; } = "";
@@ -188,6 +192,8 @@ public record CoinMarketView
     public decimal Xau { get; set; }
     public decimal Bits { get; set; }
     public decimal Sat { get; set; }
+    public DateTime CreateTime { get; set; }
+    public DateTime UpdateTime { get; set; }
 }
 
 public static class CoinMarketViewExtention
