@@ -106,41 +106,41 @@
                             </div>
                             <div class="row">
                                 <ul class="list-group">
-                                    <li class="list-group-item rounded active mb-3">
+                                    <li class="list-group-item rounded active">
                                         @{
                                             if (CurrentCoinMarketView != null)
                                             {
-                                                if (DisplayType.Value == "1")
-                                                {
-                                                    <div class="row">
-                                                        <div class="col text-truncate fw-bold">
-                                                            <img src="@CurrentCoinMarketView.Image" class="img-thumbnail" alt="">
-                                                            <span>@CurrentCoinMarketView.Name</span>
-                                                        </div>
+                                                <div class="row">
+                                                    <div class="col text-truncate fw-bold">
+                                                        <img src="@CurrentCoinMarketView.Image" class="img-thumbnail" alt="">
+                                                        <span>@CurrentCoinMarketView.Name</span>
+                                                    </div>
+                                                    @if (CurrentCoinMarketView.Id != CurrentLegalCurrency.Id)
+                                                    {
                                                         <div class="col text-truncate">
-                                                            <span>@(CurrentCoinMarketView.InputPrice)@(CurrentLegalCurrency.Symbol)</span>
+                                                            <span>1@(CurrentCoinMarketView.Symbol) = @(CurrentCoinMarketView.CurrentPrice)@(CurrentLegalCurrency.Symbol)</span>
                                                         </div>
-                                                    </div>
-                                                }
-                                                else
-                                                {
-                                                    <div class="row">
-                                                        <div class="col text-truncate fw-bold">
-                                                            <img src="@CurrentCoinMarketView.Image" class="img-thumbnail" alt="">
-                                                            <span>@CurrentCoinMarketView.Name</span>
-                                                        </div>
-                                                        @if (CurrentCoinMarketView.Id != CurrentLegalCurrency.Id)
-                                                        {
-                                                            <div class="col text-truncate">
-                                                                <span>1@(CurrentCoinMarketView.Symbol) = @(CurrentCoinMarketView.CurrentPrice)@(CurrentLegalCurrency.Symbol)</span>
-                                                            </div>
-                                                        }
-                                                    </div>
-                                                }
+                                                    }
+                                                </div>
                                             }
                                         }
                                     </li>
                                 </ul>
+                                <div class="row">
+                                    @if (CurrentCoinMarketView != null)
+                                    {
+                                        <div class="col small text-truncate text-end">
+                                            @if(CurrentCoinMarketView.Id != CurrentLegalCurrency.Id)
+                                            {
+                                                <span>update:@CurrentCoinMarketView.CreateTime</span>
+                                            }
+                                            else
+                                            {
+                                                <span>update:-</span>
+                                            }
+                                        </div>
+                                    }
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="input-group rounded">

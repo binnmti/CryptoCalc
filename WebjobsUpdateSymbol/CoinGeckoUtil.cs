@@ -164,6 +164,7 @@ internal static class CoinGeckoUtil
             try
             {
                 priceList.AddRange(idChunk.Select(id => GetPrice(JsonNode.Parse(content), id)));
+                oldMessage = "";
             }
             catch (Exception e)
             {
@@ -171,7 +172,7 @@ internal static class CoinGeckoUtil
                 Console.WriteLine(response.RequestMessage);
                 Console.WriteLine(content);
                 Console.WriteLine(e);
-                if(oldMessage == e.Message)
+                if (oldMessage == e.Message)
                 {
                     throw;
                 }
