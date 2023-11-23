@@ -159,6 +159,7 @@ internal static class CoinGeckoUtil
         var oldMessage = "";
         foreach (var idChunk in ids.Chunk(250))
         {
+retry:
             var response = await httpClient.GetAsync($"{GeckoUrl}/simple/price?ids={string.Join("%2C", idChunk)}&vs_currencies={currencyList}");
             var content = await response.Content.ReadAsStringAsync() ?? "";
             try
@@ -177,6 +178,8 @@ internal static class CoinGeckoUtil
                     throw;
                 }
                 oldMessage = e.Message;
+                Thread.Sleep(1000 * 60);
+                goto retry;
             }
             Console.WriteLine($"simple/price/page={page++}&count={priceList.Count}");
             Thread.Sleep(1000 * 30);
